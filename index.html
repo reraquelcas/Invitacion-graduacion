@@ -188,9 +188,10 @@
     html = html.replace(/<div class="portrait-placeholder" id="portraitPlaceholder"[^>]*>/,
       '<div class="portrait-placeholder" id="portraitPlaceholder" style="display:none">');
     if (musicDataUrl) {
-      html = html.replace(/<audio id="backgroundMusic" loop preload="none"><\/audio>/,
-        `<audio id="backgroundMusic" loop preload="none" src="${musicDataUrl}"><\/audio>`);
-    }
+  html = html.replace(/<audio id="backgroundMusic"[^>]*><\/audio>/,
+    `<audio id="backgroundMusic" loop preload="none" src="${musicDataUrl}"></audio>`);
+}
+
     html = html.replace(/<svg class="cap-overlay" id="capOverlay"([^>]*)>/,
       `<svg class="cap-overlay" id="capOverlay"$1 style="display:block;left:${x}%;top:${y}%;width:${size}%">`);
     const blob = new Blob([html], {type:'text/html;charset=utf-8'});
